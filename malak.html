@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malak 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #ffb6c1;
+      --dark-bg: #1b1b1b;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: var(--dark-bg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      transition: all 1s ease;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 130px;
+      color: var(--pink);
+      margin: 0;
+      animation: fadeIn 3s ease;
+      text-shadow: 0 0 20px rgba(255,182,193,0.5);
+    }
+
+    h2 {
+      margin-top: 15px;
+      color: white;
+      font-weight: 300;
+      font-size: 35px;
+      animation: fadeIn 4s ease;
+      letter-spacing: 1px;
+    }
+
+    #revealButton {
+      background-color: var(--pink);
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 40px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: fixed;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.7);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #revealButton:hover {
+      background-color: #ff8fab;
+      transform: translateX(-50%) scale(1.08);
+    }
+
+    .flower {
+      position: absolute;
+      width: 160px;
+      opacity: 0.9;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    #lyrics {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--pink);
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      line-height: 1.6;
+      opacity: 0;
+      transition: opacity 2s ease;
+      white-space: pre-line;
+      display: none;
+      text-shadow: 0 0 20px rgba(255,182,193,0.4);
+    }
+
+    #lyrics.show {
+      display: block;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Malak 🌸</h1>
+  <h2>The light of my world</h2>
+
+  <button id="revealButton">🌸 Click 🌸</button>
+
+  <img src="flower1.png" class="flower" style="top:10%; left:5%;">
+  <img src="flower2.png" class="flower" style="top:20%; right:10%;">
+  <img src="flower3.png" class="flower" style="bottom:15%; left:15%;">
+  <img src="flower4.png" class="flower" style="bottom:10%; right:20%;">
+  <img src="flower5.png" class="flower" style="top:20%; left:33%;">
+  <img src="flower6.png" class="flower" style="top:70%; right:33%;">
+  <img src="flower7.png" class="flower" style="bottom:40%; left:25%;">
+  <img src="flower8.png" class="flower" style="bottom:25%; right:10%;">
+
+  <div id="lyrics">
+    You Can Ask The Flowers<br>
+    I Sit For Hours<br>
+    Tellin’ All The Bluebirds<br>
+    The Bill And Coo Birds<br><br>
+    Pretty Little Baby<br>
+    I’m So In Love With You 💗
+  </div>
+
+  <audio id="bgMusic" src="flower_song.mp3"></audio>
+
+  <script>
+    const btn = document.getElementById('revealButton');
+    const lyrics = document.getElementById('lyrics');
+    const music = document.getElementById('bgMusic');
+
+    btn.addEventListener('click', () => {
+      music.play();
+      document.querySelectorAll('h1, h2, #revealButton').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      setTimeout(() => {
+        lyrics.classList.add('show');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
